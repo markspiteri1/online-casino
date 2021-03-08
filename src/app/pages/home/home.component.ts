@@ -4,6 +4,7 @@ import { GameMockClient, Game } from "../../shared";
 
 import { GamesContainerComponent } from "../../components/games-container/games-container.component";
 import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 
 const NAME_KEBAB = "app-home";
 
@@ -14,7 +15,7 @@ const NAME_KEBAB = "app-home";
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {
-	gamesData$: Observable<Game[]>
+	gamesData$: Observable<Game[]>;
 
 	constructor(
 		gameMockClient: GameMockClient
@@ -25,6 +26,8 @@ export class HomeComponent {
 		// 		// this.gamesData = res;
 		// 	},
 		// });
-		this.gamesData$ = gameMockClient.getAll$()
+		this.gamesData$ = gameMockClient
+			.getAll$()
+			.pipe(map((res) => res.filter((game) => game.tag === "trending")));
 	}
 }
