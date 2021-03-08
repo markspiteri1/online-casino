@@ -1,9 +1,9 @@
 import { Component, ChangeDetectionStrategy } from "@angular/core";
-import { Observable } from "rxjs";
 
 import { GameMockClient, Game } from "../../shared";
 
 import { GamesContainerComponent } from "../../components/games-container/games-container.component";
+import { Observable } from "rxjs";
 
 const NAME_KEBAB = "app-home";
 
@@ -14,12 +14,17 @@ const NAME_KEBAB = "app-home";
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {
-	gamesData$: Observable<Game[]>;
+	gamesData$: Observable<Game[]>
 
 	constructor(
-		gameMockClient: GameMockClient,
+		gameMockClient: GameMockClient
 		// gamesContainer: GamesContainerComponent
 	) {
-		this.gamesData$ = gameMockClient.getAll$();
+		// gameMockClient.getAll$().subscribe({
+		// 	next: (res) => {
+		// 		// this.gamesData = res;
+		// 	},
+		// });
+		this.gamesData$ = gameMockClient.getAll$()
 	}
 }
