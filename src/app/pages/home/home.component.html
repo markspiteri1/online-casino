@@ -5,6 +5,7 @@
 		<!-- <code class="app-home__json-data">
 			{{gamesData$ | async | json}}
 		</code> -->
-		<div *ngFor="let game of gamesData$ | async">{{game.title}}</div>
+		<!-- <div *ngFor="let game of gamesData$ | async">[game]="game"</div> -->
+		<games-container *ngFor="let game of gamesData$ | async" [game]="game"></games-container>
 	</div>
 </div>
