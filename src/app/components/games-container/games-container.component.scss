@@ -1,0 +1,9 @@
+.games-container {
+	display: flex;
+	flex-direction: column;
+	width: 280px;
+
+	&__caption {
+		text-align: center;
+	}
+}

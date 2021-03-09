@@ -9,6 +9,7 @@
 	&__json-data-container {
 		background-color: $black;
 		color: $white;
+		display: flex;
 
 		@include breakpoint("xsmall") {
 			color: $neon-green;
