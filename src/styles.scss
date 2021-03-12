@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+.mat {
+	&-sidenav {
+		background-color: #9c9c9c;
+        width: 200px;
+	}
+
+	&-drawer-backdrop{
+		background-color: rgba(0, 0, 0, 0.6)!important;
+	}
+}
