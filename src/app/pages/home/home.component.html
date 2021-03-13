@@ -1,11 +1,7 @@
-<h1 class="app-home__title">Home</h1>
+<h1 class="app-home__title">Trending Games</h1>
 
 <div class="app-home__content">
 	<div class="app-home__json-data-container">
-		<!-- <code class="app-home__json-data">
-			{{gamesData$ | async | json}}
-		</code> -->
-		<!-- <div *ngFor="let game of gamesData$ | async">[game]="game"</div> -->
 		<game-container
 			*ngFor="let game of gamesData$ | async"
 			[game]="game"

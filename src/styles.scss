@@ -1,9 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-.mat-sidenav {
-	background-color: #9c9c9c;
-	width: 200px;
-}
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-.mat-drawer-backdrop.mat-drawer-shown {
-	background-color: rgba(0, 0, 0, 0.6) !important;
+
+.mat-sidenav {
+	width: 200px;
 }

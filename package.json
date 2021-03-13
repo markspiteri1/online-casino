@@ -21,6 +21,7 @@
     "@angular/platform-browser": "~11.0.4",
     "@angular/platform-browser-dynamic": "~11.0.4",
     "@angular/router": "~11.0.4",
+    "@material/form-field": "^10.0.0",
     "@ngxs/devtools-plugin": "^3.7.0",
     "@ngxs/logger-plugin": "^3.7.0",
     "@ngxs/storage-plugin": "^3.7.0",

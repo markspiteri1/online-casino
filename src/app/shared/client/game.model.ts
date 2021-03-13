@@ -3,6 +3,7 @@ export interface Game {
 	slug: string;
 	title: string;
 	tag: "hot" | "trending" | null;
+	providerName: string;
 	thumb: {
 		url: string;
 	};

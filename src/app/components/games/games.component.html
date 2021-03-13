@@ -1,1 +1,9 @@
 <p>games works!</p>
+<mat-form-field *ngIf="providers$ | async as providers$">
+	<mat-label>Panel color</mat-label>
+	<mat-select>
+		<mat-option *ngFor="let provider of providers$" [value]="provider">
+			{{ provider }}
+		</mat-option>
+	</mat-select>
+</mat-form-field>
