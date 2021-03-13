@@ -6,6 +6,9 @@
 			{{gamesData$ | async | json}}
 		</code> -->
 		<!-- <div *ngFor="let game of gamesData$ | async">[game]="game"</div> -->
-		<games-container *ngFor="let game of gamesData$ | async" [game]="game"></games-container>
+		<games-container
+			*ngFor="let game of gamesData$ | async"
+			[game]="game"
+		></games-container>
 	</div>
 </div>
