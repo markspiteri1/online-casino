@@ -1,13 +1,13 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { HomeComponent } from "./home/home.component";
-import {GamesContainerComponent} from "./../components/games-container/games-container.component"
+import {GameContainerComponent} from "./../components/game-container/game-container.component"
 
 import { AppPagesRoutingModule } from "./pages-routing.module";
 
 const COMPONENTS = [
 	HomeComponent,
-	GamesContainerComponent
+	GameContainerComponent
 ];
 
 @NgModule({

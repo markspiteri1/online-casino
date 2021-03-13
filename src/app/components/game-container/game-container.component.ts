@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from "@angular/core";
 import { Game } from "src/app/shared";
 
 @Component({
-	selector: "games-container",
-	templateUrl: "./games-container.component.html",
-	styleUrls: ["./games-container.component.scss"],
+	selector: "game-container",
+	templateUrl: "./game-container.component.html",
+	styleUrls: ["./game-container.component.scss"],
 })
-export class GamesContainerComponent implements OnInit {
+export class GameContainerComponent implements OnInit {
 	@Input() game: Game | undefined;
 	constructor() {}
 

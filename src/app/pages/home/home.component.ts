@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy } from "@angular/core";
 
 import { GameMockClient, Game } from "../../shared";
 
-import { GamesContainerComponent } from "../../components/games-container/games-container.component";
+import { GameContainerComponent } from "../../components/game-container/game-container.component";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 
