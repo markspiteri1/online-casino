@@ -39,4 +39,8 @@ export class GamesComponent implements OnInit {
 	}
 
 	ngOnInit(): void {}
+
+	onProviderChange(val: string) {
+		console.log(val);
+	}
 }

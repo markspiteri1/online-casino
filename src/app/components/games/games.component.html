@@ -10,7 +10,7 @@
 	</mat-form-field>
 	<mat-form-field *ngIf="providers$ | async as providers$" class="provder-ddl">
 		<mat-label>Provider</mat-label>
-		<mat-select>
+		<mat-select (selectionChange)="onProviderChange($event.value)">
 			<mat-option *ngFor="let provider of providers$" [value]="provider">
 				{{ provider }}
 			</mat-option>
