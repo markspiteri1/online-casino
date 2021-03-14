@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl } from "@angular/forms";
+import { Location } from "@angular/common";
 import { Observable } from "rxjs/internal/Observable";
 import {
 	debounceTime,
@@ -9,6 +10,7 @@ import {
 	tap,
 } from "rxjs/operators";
 import { Game, GameMockClient } from "src/app/shared";
+import { Router } from "@angular/router";
 
 @Component({
 	selector: "app-games",
@@ -22,7 +24,11 @@ export class GamesComponent implements OnInit {
 	results: Observable<Game[]>;
 	private loading: boolean = false;
 
-	constructor(gameMockClient: GameMockClient) {
+	constructor(
+		gameMockClient: GameMockClient,
+		private location: Location,
+		private router: Router
+	) {
 		this.providers$ = gameMockClient.getProviders$();
 		this.searchField = new FormControl();
 
@@ -32,7 +38,10 @@ export class GamesComponent implements OnInit {
 			distinctUntilChanged(),
 			tap((_) => (this.loading = true)),
 			switchMap((term) =>
-				gameMockClient.getFilteredResults$(term, this.provider)
+				gameMockClient.getFilteredResults$(
+					term,
+					this.provider === "Show all providers" ? "" : this.provider
+				)
 			),
 			tap((_) => (this.loading = false))
 		);
@@ -41,6 +50,8 @@ export class GamesComponent implements OnInit {
 	ngOnInit(): void {}
 
 	onProviderChange(val: string) {
-		console.log(val);
+		this.provider = val;
+		// console.log(this.router.url);
+		this.location.replaceState(`${this.router.url}?provider=${val}`);
 	}
 }

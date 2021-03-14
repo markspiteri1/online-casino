@@ -19,13 +19,20 @@ export class GameMockClient {
 
 	getFilteredResults$(filter: string, provider: string): Observable<Game[]> {
 		console.log("get filtered results - filter term: ", filter);
-		return this.http
+		console.log("get filtered results - provider: ", provider);
+		const res = this.http
 			.get<Game[]>(this.dataURL)
 			.pipe(
-				map((games) => 
+				map((games) =>
 					games.filter((game) => game.title.toLowerCase().includes(filter))
 				)
 			);
+		if (!provider) {
+			return res;
+		}
+		return res.pipe(
+			map((games) => games.filter((game) => game.providerName === provider))
+		);
 	}
 
 	getProviders$(): Observable<string[]> {
