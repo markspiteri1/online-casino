@@ -1,12 +1,14 @@
-<mat-form-field class="search-bar">
-	<mat-label>Search</mat-label>
-	<input type="search" matInput placeholder="Search" />
-</mat-form-field>
-<mat-form-field *ngIf="providers$ | async as providers$" class="provder-ddl">
-	<mat-label>Provider</mat-label>
-	<mat-select>
-		<mat-option *ngFor="let provider of providers$" [value]="provider">
-			{{ provider }}
-		</mat-option>
-	</mat-select>
-</mat-form-field>
+<div class="options">
+	<mat-form-field class="search-bar">
+		<mat-label>Search</mat-label>
+		<input type="search" matInput placeholder="Search" />
+	</mat-form-field>
+	<mat-form-field *ngIf="providers$ | async as providers$" class="provder-ddl">
+		<mat-label>Provider</mat-label>
+		<mat-select>
+			<mat-option *ngFor="let provider of providers$" [value]="provider">
+				{{ provider }}
+			</mat-option>
+		</mat-select>
+	</mat-form-field>
+</div>
