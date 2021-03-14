@@ -4,6 +4,7 @@ export interface Game {
 	title: string;
 	tag: "hot" | "trending" | null;
 	providerName: string;
+	startUrl: string | undefined;
 	thumb: {
 		url: string;
 	};

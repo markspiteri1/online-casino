@@ -11,4 +11,9 @@ export class GameContainerComponent implements OnInit {
 	constructor() {}
 
 	ngOnInit(): void {}
+
+	play(link: string) {
+		console.log('link: '+link)
+		window.open(link, "_blank");
+	}
 }
