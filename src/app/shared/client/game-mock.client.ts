@@ -13,17 +13,25 @@ export class GameMockClient {
 	constructor(private http: HttpClient) {}
 
 	getAll$(): Observable<Game[]> {
+		console.log("get all");
 		return this.http.get<Game[]>(this.dataURL);
 	}
 
 	getFilteredResults$(filter: string, provider: string): Observable<Game[]> {
-		return this.http.get<Game[]>(this.dataURL);
+		console.log("get filtered results - provder term: ",provider);
+		return this.http
+			.get<Game[]>(this.dataURL)
+			.pipe(
+				map((games) =>
+					games.filter((game) => game.title.toLowerCase().includes(filter))
+				)
+			);
 	}
 
 	getProviders$(): Observable<string[]> {
 		return this.http.get<Game[]>(this.dataURL).pipe(
 			map((games) => games.map((game) => game.providerName)),
-			distinct(game=>game)
+			distinct((game) => game)
 		);
 	}
 }
