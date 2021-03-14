@@ -4,6 +4,7 @@ import { Observable } from "rxjs/internal/Observable";
 import {
 	debounceTime,
 	distinctUntilChanged,
+	startWith,
 	switchMap,
 	tap,
 } from "rxjs/operators";
@@ -22,13 +23,11 @@ export class GamesComponent implements OnInit {
 	private loading: boolean = false;
 
 	constructor(gameMockClient: GameMockClient) {
-
-		this.results = gameMockClient
-		.getAll$()
-
 		this.providers$ = gameMockClient.getProviders$();
 		this.searchField = new FormControl();
+
 		this.results = this.searchField.valueChanges.pipe(
+			startWith(""),
 			debounceTime(500),
 			distinctUntilChanged(),
 			tap((_) => (this.loading = true)),
