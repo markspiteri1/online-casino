@@ -19,13 +19,7 @@ export class HomeComponent {
 
 	constructor(
 		gameMockClient: GameMockClient
-		// gamesContainer: GamesContainerComponent
 	) {
-		// gameMockClient.getAll$().subscribe({
-		// 	next: (res) => {
-		// 		// this.gamesData = res;
-		// 	},
-		// });
 		this.gamesData$ = gameMockClient
 			.getAll$()
 			.pipe(map((res) => res.filter((game) => game.tag === "trending")));

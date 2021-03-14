@@ -6,8 +6,10 @@ import { GamesComponent } from "./../components/games/games.component";
 
 import { AppPagesRoutingModule } from "./pages-routing.module";
 import { MatFormFieldModule } from "@angular/material/form-field";
-import { MatSelectModule } from "@angular/material/select";
 import { MatInputModule } from "@angular/material/input";
+import { MatSelectModule } from "@angular/material/select";
+
+import { FormsModule } from "@angular/forms";
 
 const COMPONENTS = [HomeComponent, GameContainerComponent, GamesComponent];
 
@@ -17,6 +19,8 @@ const COMPONENTS = [HomeComponent, GameContainerComponent, GamesComponent];
 		AppPagesRoutingModule,
 		MatFormFieldModule,
 		MatSelectModule,
+		FormsModule,
+		MatInputModule,
 	],
 	declarations: [...COMPONENTS],
 	exports: [...COMPONENTS, MatFormFieldModule, MatInputModule],

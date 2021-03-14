@@ -23,7 +23,7 @@ export class GameMockClient {
 	getProviders$(): Observable<string[]> {
 		return this.http.get<Game[]>(this.dataURL).pipe(
 			map((games) => games.map((game) => game.providerName)),
-			distinct()
+			distinct(game=>game)
 		);
 	}
 }
