@@ -3,6 +3,14 @@
 	flex-direction: column;
 	width: 280px;
 
+	&__image {
+		cursor: pointer;
+		transition: transform 0.2s;
+		&:hover {
+			transform: scale(1.03);
+		}
+	}
+
 	&__caption {
 		text-align: center;
 	}
